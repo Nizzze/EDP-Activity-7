@@ -13,6 +13,7 @@ using System.Reflection;
 using Microsoft.Office.Core;
 using MySql.Data.MySqlClient;
 using Microsoft.Office.Interop.Excel;
+using System.IO;
 using DataTable = System.Data.DataTable;
 
 namespace Products
@@ -318,11 +319,13 @@ namespace Products
                 titleRange.Font.Color = System.Drawing.Color.FromArgb(0, 120, 215);
                 titleRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                
+                // Construct the relative path to the image file
+                string relativeImagePath = @"..\..\Resources\LOGO_NO_BG.png";
+                string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                string imagePath = Path.Combine(directory, relativeImagePath);
+                var logoTextbox = oSheet.Shapes.AddPicture(imagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue, 20, 20, 100, 100);
 
-                // Add logo
-                var logoTextbox = oSheet.Shapes.AddPicture("D:\\ALVAN\\3rd Year\\2nd Sem\\EDP\\Task 6//LOGO_NO_BG.png", MsoTriState.msoFalse, MsoTriState.msoCTrue, 20, 20, 100, 100);
-
-                // Add text box for "School Supply" above the address, contact, and email
                 var HomeTextbox = oSheet.Shapes.AddTextbox(MsoTextOrientation.msoTextOrientationHorizontal, 20, 10, 100, 100);
                 var OrderTextFrame = HomeTextbox.TextFrame2;
                 // Remove the outline of the text box
@@ -655,9 +658,12 @@ namespace Products
                 titleRange.Font.Color = System.Drawing.Color.FromArgb(0, 120, 215);
                 titleRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-
-                // Add logo
-                var logoTextbox = oSheet.Shapes.AddPicture("D:\\ALVAN\\3rd Year\\2nd Sem\\EDP\\Task 6//LOGO_NO_BG.png", MsoTriState.msoFalse, MsoTriState.msoCTrue, 20, 20, 100, 100);
+                
+                // Construct the relative path to the image file
+                string relativeImagePath = @"..\..\Resources\LOGO_NO_BG.png";
+                string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                string imagePath = Path.Combine(directory, relativeImagePath);
+                var logoTextbox = oSheet.Shapes.AddPicture(imagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue, 20, 20, 100, 100);
 
                 // Add text box for "School Supply" above the address, contact, and email
                 var HomeTextbox = oSheet.Shapes.AddTextbox(MsoTextOrientation.msoTextOrientationHorizontal, 20, 10, 100, 100);
@@ -865,9 +871,13 @@ namespace Products
                 titleRange.Font.Color = System.Drawing.Color.FromArgb(0, 120, 215);
                 titleRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                 titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-
-                // Add logo
-                var logoTextbox = oSheet.Shapes.AddPicture("D:\\ALVAN\\3rd Year\\2nd Sem\\EDP\\Task 6//LOGO_NO_BG.png", MsoTriState.msoFalse, MsoTriState.msoCTrue, 20, 20, 100, 100);
+                
+                // Construct the relative path to the image file
+                string relativeImagePath = @"..\..\Resources\LOGO_NO_BG.png";
+                string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                string imagePath = Path.Combine(directory, relativeImagePath);
+                // Use the imagePath variable in your code
+                var logoTextbox = oSheet.Shapes.AddPicture(imagePath, MsoTriState.msoFalse, MsoTriState.msoCTrue, 20, 20, 100, 100);
 
                 // Add text box for "School Supply" above the address, contact, and email
                 var HomeTextbox = oSheet.Shapes.AddTextbox(MsoTextOrientation.msoTextOrientationHorizontal, 20, 10, 100, 100);
